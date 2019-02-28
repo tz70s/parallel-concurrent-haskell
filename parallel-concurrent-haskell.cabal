@@ -25,3 +25,25 @@ executable ch2-fib-eval
   build-depends:       base >= 4.7 && < 5
                      , parallel
   ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
+
+executable ch7-fork-io
+  hs-source-dirs:      src/concurrent/ch7
+  main-is:             ForkIO.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+  ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
+
+executable ch7-logging
+  hs-source-dirs:      src/concurrent/ch7
+  main-is:             Logging.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+  ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
+
+executable ch7-phonebook
+  hs-source-dirs:      src/concurrent/ch7
+  main-is:             Phonebook.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , containers >= 0.6
+  ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
