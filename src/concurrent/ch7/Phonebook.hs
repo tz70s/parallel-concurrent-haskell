@@ -1,7 +1,7 @@
 module Main where
 
-import qualified Data.Map as Map
-import Control.Concurrent
+import           Control.Concurrent
+import qualified Data.Map           as Map
 
 type Name = String
 type PhoneNumber = String
