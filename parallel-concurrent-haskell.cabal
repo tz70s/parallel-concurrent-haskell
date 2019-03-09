@@ -48,6 +48,13 @@ executable ch7-phonebook
                      , containers >= 0.6
   ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
 
+executable ch7-chanl
+  hs-source-dirs:      src/concurrent/ch7
+  main-is:             ChanL.hs
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+  ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
+
 executable ch10-async-stm
   hs-source-dirs:      src/concurrent/ch10
   main-is:             AsyncSTM.hs
