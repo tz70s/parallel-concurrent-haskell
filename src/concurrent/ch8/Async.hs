@@ -1,7 +1,9 @@
-module AsyncWait where
+module Main where
 
 import           Control.Concurrent
 import           Control.Exception
+import qualified Data.ByteString.Lazy as BSL
+import           GetUrls
 
 -- Simulate async and wait for reducing manual fork and mvar operations.
 
@@ -36,3 +38,11 @@ waitAny as = do
           putMVar mvar r -- fork thread and wait, wait for result and race for the first put to mvar.
   _ <- traverse forkwait as -- or mapM_
   wait (Async mvar)
+
+main :: IO ()
+main = do
+  a1 <- async (getUrl "http://www.google.com")
+  a2 <- async (getUrl "http://www.bing.com")
+  r1 <- wait a1
+  r2 <- wait a2
+  print (BSL.length r1, BSL.length r2)

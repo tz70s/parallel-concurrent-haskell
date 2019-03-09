@@ -55,6 +55,17 @@ executable ch7-chanl
   build-depends:       base >= 4.7 && < 5
   ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
 
+executable ch8-async
+  hs-source-dirs:      src/concurrent/ch8
+  main-is:             Async.hs
+  default-language:    Haskell2010
+  other-modules:       GetUrls
+                     , PlainMVar
+  build-depends:       base >= 4.7 && < 5
+                     , http-conduit
+                     , bytestring
+  ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
+
 executable ch10-async-stm
   hs-source-dirs:      src/concurrent/ch10
   main-is:             AsyncSTM.hs
