@@ -69,8 +69,11 @@ executable ch8-async
 executable ch10-async-stm
   hs-source-dirs:      src/concurrent/ch10
   main-is:             AsyncSTM.hs
+  other-modules:       WindowMan
+                     , TMVarL
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
                      , stm
+                     , containers
   ghc-options:         -Wall -threaded -O2 -rtsopts -eventlog
 
