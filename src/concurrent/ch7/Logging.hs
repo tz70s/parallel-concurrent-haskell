@@ -1,9 +1,8 @@
 module Main where
 
-import           Control.Concurrent
+import Control.Concurrent
 
-data Logger =
-  Logger (MVar LogCommand)
+newtype Logger = Logger (MVar LogCommand)
 
 data LogCommand
   = Message String
@@ -18,16 +17,16 @@ initLogger = do
 
 logger :: Logger -> IO ()
 logger (Logger mvar) = loop
-  where
-    loop = do
-      cmd <- takeMVar mvar
-      case cmd of
-        Message msg -> do
-          putStrLn msg
-          loop
-        Stop stopMVar -> do
-          putStrLn "logger: stop"
-          putMVar stopMVar ()
+ where
+  loop = do
+    cmd <- takeMVar mvar
+    case cmd of
+      Message msg -> do
+        putStrLn msg
+        loop
+      Stop stopMVar -> do
+        putStrLn "logger: stop"
+        putMVar stopMVar ()
 
 logMessage :: Logger -> String -> IO ()
 logMessage (Logger mvar) s = putMVar mvar (Message s)

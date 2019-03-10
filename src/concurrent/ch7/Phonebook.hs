@@ -1,7 +1,8 @@
 module Main where
 
-import           Control.Concurrent
-import qualified Data.Map           as Map
+import Control.Concurrent
+
+import qualified Data.Map as Map
 
 type Name = String
 type PhoneNumber = String
@@ -48,6 +49,6 @@ lookup' (PhoneBookState mvar) name = do
 main :: IO ()
 main = do
   state <- new
-  sequence_ [ insert state ("name" ++ show n) (show n) | n <- [1..10000] :: [Int]]
+  sequence_ [ insert state ("name" ++ show n) (show n) | n <- [1 .. 10000] :: [Int] ]
   lookup' state "name999" >>= print
   lookup' state "unknown" >>= print

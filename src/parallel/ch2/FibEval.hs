@@ -1,3 +1,8 @@
+module Main
+  ( main
+  )
+where
+
 import Control.Parallel.Strategies
 import Control.Applicative (liftA2)
 
@@ -7,7 +12,7 @@ import Control.Applicative (liftA2)
 fib :: Integer -> Integer
 fib 0 = 1
 fib 1 = 1
-fib n = fib (n - 1) + fib (n -2)
+fib n = fib (n - 1) + fib (n - 2)
 
 -- | Double fib with two spark.
 doubleFibViaTwoSpark :: Integer -> Integer
